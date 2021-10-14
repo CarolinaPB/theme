@@ -12,23 +12,21 @@
 
   <div class="collapse navbar-collapse" id="main-navbar">
     <ul class="navbar-nav ml-auto">
-      {%- for url in site.data.navigation -%}
-        {%- if url[1].first %}
+      {%- for item in site.data.navigation.toc -%}
+<!--         {%- if url[1].first %} -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ url[0] }}</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ item.title }}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              {%- for childlink in url[1] -%}
-                {%- for linkparts in childlink %}
-                  <a class="dropdown-item" href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
-                {%- endfor -%}
+              {%- for entry in item.subfolderitems -%}
+                  <a class="dropdown-item" href="{{ entry.url | relative_url }}">{{ entry.page }}</a>
               {%- endfor %}
             </div>
           </li>
-        {% else %}
+<!--         {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{{ url[1] | relative_url }}">{{ url[0] }}</a>
           </li>
-        {%- endif -%}
+        {%- endif -%} -->
       {%- endfor -%}
       
        <div class="collapse navbar-collapse" id="main-navbar">
