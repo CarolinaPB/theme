@@ -33,7 +33,7 @@
       
        <div class="collapse navbar-collapse" id="main-navbar">
     <ul class="navbar-nav ml-auto">
-      {%- for item in site.data.navigation.toc -%}
+      {%- for url in site.data.navigation.toc -%}
         {%- if url[1].first %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ url[0] }}</a>
